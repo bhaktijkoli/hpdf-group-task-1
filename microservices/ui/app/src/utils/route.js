@@ -1,4 +1,4 @@
-var url = "https://api.adulthood94.hasura-app.io";
+var url = "https://api.bacteriology43.hasura-app.io";
 export default function(route) {
   return url + route;
 }
