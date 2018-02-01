@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-import HasuraExampleApp from './hasuraExamples/HasuraExampleApp';
+import './css/index.css';
+import './css/bootstrap-grid.css';
 
-//Replace HasuraExampleApp with your own component
-ReactDOM.render(
-  <HasuraExampleApp />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
