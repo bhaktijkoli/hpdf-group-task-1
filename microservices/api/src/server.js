@@ -28,7 +28,7 @@
 
 		
 
-		var url = "https://auth.adulthood94.hasura-app.io/v1/signup";
+		var url = "https://auth.bacteriology43.hasura-app.io/v1/signup";
 
 		var requestOptions = {
 		    "method": "POST",
@@ -61,11 +61,11 @@
 		    	res.status(meta.status).send(meta);
 
 
-		    /*	if(meta.status === 200){
+		    	if(meta.status === 200){
 					 authToken = myObj.auth_token
 			    	 hasura_id = myObj.hasura_id;
 			    	
-			    	var url = "https://data.adulthood94.hasura-app.io/v1/query";
+			    	var url = "https://data.bacteriology43.hasura-app.io/v1/query";
 
 			
 			    console.log(authToken);
@@ -85,12 +85,11 @@
 			        "objects": [
 			            {
 			                "hasura_id": hasura_id,
+			                "username": username,
 			                "firstname": firstname,
 			                "lastname": lastname,
 			                "gender": gender,
-			                "dob": dob,
-			                "username": username,
-			                "time": timeStampInMs
+			                "dob": dob
 			            }
 			        ]
 			    }
@@ -113,7 +112,7 @@
 		    
 		 });
 				
-     }*/
+     }
 
 	});
 
@@ -127,7 +126,7 @@
 		var password = req.body.password;
 
 
-		var url = "https://auth.adulthood94.hasura-app.io/v1/login";
+		var url = "https://auth.bacteriology43.hasura-app.io/v1/login";
 
 		var requestOptions = {
 		    "method": "POST",
@@ -158,7 +157,7 @@
 		    else
 		    {
 		    	res.send(meta);
-			    var authToken = myObj.auth_token;
+			    //var authToken = myObj.auth_token;
 			   
 		    }
 		   
