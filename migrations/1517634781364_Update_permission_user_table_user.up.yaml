@@ -1,0 +1,13 @@
+- args:
+    permission:
+      columns:
+      - dob
+      - firstname
+      - gender
+      - hasura_id
+      - lastname
+      - username
+      filter: {}
+    role: user
+    table: user
+  type: create_select_permission

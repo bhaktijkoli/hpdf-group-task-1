@@ -1,0 +1,7 @@
+- args:
+    sql: CREATE TABLE "textposts"("id" serial NOT NULL, "user_id" integer NOT NULL,
+      "text" text NOT NULL, PRIMARY KEY ("id") )
+  type: run_sql
+- args:
+    name: textposts
+  type: add_existing_table_or_view
