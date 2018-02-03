@@ -44,7 +44,8 @@ class RegisterForm extends Component {
     if(!this.validateEmail(state.email)) this.setState({emailError:"Email should be valid."}), errors=true;
     if(state.password.length < 4 || state.password.length > 32) this.setState({passwordError:"Password is week.",errors: true}), errors=true;
     if(errors == true) return;
-    request.makePost(route('/signpoint'),$(e.target).serialize());
+    var data = $(e.target).serialize() + "&gender=" + this.state.gender;
+    request.makePost(route('/signpoint'), data);
   }
   render() {
     return (

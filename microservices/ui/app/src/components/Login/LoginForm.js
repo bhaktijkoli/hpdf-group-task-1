@@ -3,14 +3,37 @@ import { withRouter } from 'react-router-dom';
 
 import {TextField, RaisedButton } from 'material-ui';
 
+import $ from 'jquery';
+
+import route from './../../utils/route';
+import request from './../../utils/request';
+
 class LoginForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:'',
+      password:'',
+    }
+  }
+  handleChange(e) {
+    var name = e.target.name;
+    var value = e.target.value;
+    this.setState({[name]:value});
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    var data = $(e.target).serialize();
+    console.log(data);
+    request.makePost(route('/loginpoint'), data);
+  }
   render() {
     return (
-      <form>
-        <TextField floatingLabelText="Email" type="email" fullWidth/>
-        <TextField floatingLabelText="Password" type="password" fullWidth/>
+      <form onSubmit={e=>this.handleSubmit(e)}>
+        <TextField floatingLabelText="Email" type="email" fullWidth name="email" errorText={this.state.emailError} value={this.state.email} onChange={e => this.handleChange(e)}/>
+        <TextField floatingLabelText="Password" type="password" fullWidth name="password" errorText={this.state.passwordError} value={this.state.password} onChange={e => this.handleChange(e)}/>
         <div className="space"></div>
-        <RaisedButton label="Login" primary={true} fullWidth/>
+        <RaisedButton type="submit" label="Sign Up" primary={true} fullWidth/>
         <div className="space-50"></div>
       </form>
     );
