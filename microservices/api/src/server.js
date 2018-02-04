@@ -3,8 +3,10 @@
 		var path = require('path');
 		var bodyParser = require('body-parser');
 		var fetchAction =  require('fetch');
+		var cookieParser = require('cookie-parser')
 
 		var app = express();
+		app.use(cookieParser());
 		app.use(bodyParser.urlencoded({extended: true}));
 
 
@@ -16,7 +18,7 @@
 	}
 
 		
-		    app.use(allowCrossDomain);
+		  app.use(allowCrossDomain);
 		
 
 
@@ -173,7 +175,8 @@
 		    }
 		    else
 		    {
-		    	res.status(meta.status).send(meta);
+		    	res.status(meta.status).cookie('bacteriology43' , myObj.auth_token).send(meta);
+		    	//res.status(meta.status).send(meta);
 		    	console.log(myObj);
 			   
 		    }
