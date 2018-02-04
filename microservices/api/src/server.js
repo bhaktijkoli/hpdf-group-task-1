@@ -15,10 +15,9 @@
 	    next();
 	}
 
-		app.configure(function() {
+		
 		    app.use(allowCrossDomain);
-		});    
-
+		
 
 
 
