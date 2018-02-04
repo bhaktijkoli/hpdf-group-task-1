@@ -464,7 +464,19 @@
 				    }
 				    else
 				    {
-				    	res.send(myObj);
+
+				    	if(myObj.message != null)
+				    	{
+				    		var mess = {"auth": 0,"user": {}}
+				    		res.send(mess);
+				    	}
+				        else{
+
+					        var mess = {"auth": 1,"user": myObj}
+					    	res.send(mess);	
+				        }
+
+
 				    	console.log(myObj);	
 			    
 				    }
