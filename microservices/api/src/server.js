@@ -6,6 +6,22 @@
 
 		var app = express();
 		app.use(bodyParser.urlencoded({extended: true}));
+
+
+		var allowCrossDomain = function(req, res, next) {
+	    res.header('Access-Control-Allow-Origin', "*");
+	    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	    res.header('Access-Control-Allow-Headers', 'Content-Type');
+	    next();
+	}
+
+		app.configure(function() {
+		    app.use(allowCrossDomain);
+		});    
+
+
+
+
 		
 		app.post('/signpoint', function(req, res){
 
@@ -29,8 +45,6 @@
 		console.log(username);
 		console.log(password);
 
-
-		
 
 		var url = "https://auth.bacteriology43.hasura-app.io/v1/signup";
 
@@ -183,7 +197,7 @@
 		
 		var authToken = req.body.authToken;
 		var user_id = req.body.hasura_id;
-		var username = req.body.username;
+		var username = req.body.email;
 		var textpost = req.body.text;
 		//var imagepost = req.body.image;	
 
