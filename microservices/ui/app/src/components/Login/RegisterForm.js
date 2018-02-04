@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import {TextField, DatePicker, SelectField, MenuItem, RaisedButton } from 'material-ui';
+import {TextField, DatePicker, SelectField, MenuItem, RaisedButton, Dialog, FlatButton } from 'material-ui';
 import $ from 'jquery';
 
 
@@ -21,6 +21,7 @@ class RegisterForm extends Component {
       lastnameError:'',
       emailError:'',
       passwordError:'',
+      open:false,
     }
   }
   handleChange(e) {
@@ -34,6 +35,14 @@ class RegisterForm extends Component {
   handleDateChange(e, v) {
     this.setState({dob:v})
   }
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+    window.location = '/'
+  };
   handleSubmit(e) {
     e.preventDefault();
     this.setState({firstnameError:'',lastnameError:'',emailError:'',passwordError:'',errors: false})
@@ -45,9 +54,23 @@ class RegisterForm extends Component {
     if(state.password.length < 4 || state.password.length > 32) this.setState({passwordError:"Password is week.",errors: true}), errors=true;
     if(errors == true) return;
     var data = $(e.target).serialize() + "&gender=" + this.state.gender;
-    request.makePost(route('/signpoint'), data);
+    request.makePost(route('/signpoint'), data)
+    .then(()=>{
+      this.handleOpen();
+    })
+    .catch(()=>{
+      this.setState({emailError:'Email is already registered.'});
+    })
   }
   render() {
+    const actions = [
+      <FlatButton
+        label="Ok"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleClose}
+      />,
+    ];
     return (
       <form onSubmit={e=>this.handleSubmit(e)}>
         <TextField floatingLabelText="First name" fullWidth name="firstname" errorText={this.state.firstnameError} value={this.state.firstname} onChange={e => this.handleChange(e)}/>
@@ -63,6 +86,14 @@ class RegisterForm extends Component {
         <div className="space"></div>
         <RaisedButton type="submit" label="Sign Up" primary={true} fullWidth/>
         <div className="space"></div>
+        <Dialog
+          title="Signup"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose} >
+          Registartion successfull, you can now login.
+        </Dialog>
       </form>
     );
   }
