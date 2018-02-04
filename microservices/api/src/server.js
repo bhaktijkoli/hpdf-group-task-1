@@ -176,7 +176,7 @@
 		    else
 		    {
 		    	res.status(meta.status).cookie('bacteriology43' , myObj.auth_token, { maxAge: 900000, httpOnly: true }).send(meta);
-		    	
+
 		    	console.log(myObj);
 			   
 		    }
@@ -355,7 +355,7 @@
 		app.post('/seeposts',function(req,res){
 
 
-			var authToken = req.body.authToken;
+			var authToken = req.cookies.bacteriology43;
 
 
 		var url = "https://data.bacteriology43.hasura-app.io/v1/query";
