@@ -407,6 +407,43 @@ app.post('/seeposts',function(req,res){
 
 
 
+app.post('/authpoint',function(req,res){
+
+			var authToken = req.cookies.bacteriology43;
+
+			var url = "https://auth.bacteriology43.hasura-app.io/v1/user/info";
+
+			var requestOptions = {
+			    "method": "GET",
+			    "headers": {
+			        "Content-Type": "application/json",
+			        "Authorization": "Bearer "+authToken
+			    }
+			};
+
+				console.log(authToken);
+				//requestOptions.body = JSON.stringify(body);
+				//requestOptions.payload = JSON.stringify(body);
+
+				fetchAction.fetchUrl(url, requestOptions, function(error,meta,body){
+					var myObj = JSON.parse(body);
+					if(error){
+				    	console.log('Request Failed:' + error);
+				    }
+				    else
+				    {
+				    	res.send(myObj);
+				    	console.log(myObj);
+			    
+				    }
+				});
+
+
+
+		});
+
+
+
 app.listen(8080, function(){
 	console.log('listening on port 8080!');
 });
