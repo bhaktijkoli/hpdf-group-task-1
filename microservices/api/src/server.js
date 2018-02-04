@@ -417,8 +417,7 @@
 			};
 
 				console.log(authToken);
-				//requestOptions.body = JSON.stringify(body);
-				//requestOptions.payload = JSON.stringify(body);
+				
 
 				fetchAction.fetchUrl(url, requestOptions, function(error,meta,body){
 					var myObj = JSON.parse(body);
@@ -427,8 +426,50 @@
 				    }
 				    else
 				    {
-				    	res.send(myObj);
+				    	//res.send(myObj);
 				    	console.log(myObj);
+				    	var url = "https://data.bacteriology43.hasura-app.io/v1/query";
+
+
+					var requestOptions = {
+					    "method": "POST",
+					    "headers": {
+					        "Content-Type": "application/json",
+					        "Authorization": "Bearer "+ authToken
+					    }
+					};
+
+					var body = {
+					    "type": "select",
+					    "args": {
+					        "table": "user",
+					        "columns": [
+					            "*"
+					        ],
+					        "where": {
+					            "hasura_id": {
+					                "$eq": myObj.hasura_id
+					            }
+					        }
+					    }
+					};
+
+					requestOptions.body = JSON.stringify(body);
+					requestOptions.payload = JSON.stringify(body);
+
+					fetchAction.fetchUrl(url, requestOptions, function(error,meta,body){
+					var myObj = JSON.parse(body);
+					if(error){
+				    	console.log('Request Failed:' + error);
+				    }
+				    else
+				    {
+				    	res.send(myObj);
+				    	console.log(myObj);	
+			    
+				    }
+				});
+
 			    
 				    }
 				});
