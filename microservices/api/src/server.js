@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 var allowCrossDomain = function(req, res, next) {
-	res.header('Access-Control-Allow-Origin', "http://localhost:3000/");
-	res.header('Access-Control-Allow-Origin', "https://ui.bacteriology43.hasura-app.io/");
+	res.setHeader('Access-Control-Allow-Origin', "http://localhost:3000/");
+	res.setHeader('Access-Control-Allow-Origin', "https://ui.bacteriology43.hasura-app.io/");
 	res.header('Access-Control-Allow-Credentials', true);
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
 	res.header('Access-Control-Allow-Headers', 'Content-Type');
