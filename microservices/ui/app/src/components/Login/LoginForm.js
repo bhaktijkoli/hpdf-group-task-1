@@ -24,8 +24,10 @@ class LoginForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     var data = $(e.target).serialize();
-    console.log(data);
-    request.makePost(route('/loginpoint'), data);
+    request.makePost(route('/loginpoint'), data)
+    .then((response)=>{
+      alert("Success!");
+    })
   }
   render() {
     return (
