@@ -175,8 +175,8 @@
 		    }
 		    else
 		    {
-		    	res.status(meta.status).cookie('bacteriology43' , myObj.auth_token).send(meta);
-		    	//res.status(meta.status).send(meta);
+		    	res.status(meta.status).cookie('bacteriology43' , myObj.auth_token, { maxAge: 900000, httpOnly: true }).send(meta);
+		    	
 		    	console.log(myObj);
 			   
 		    }
