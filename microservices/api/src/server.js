@@ -283,7 +283,8 @@
 					        "objects": [
 					            {
 					                "user_id": user_id,
-					                "text": textpost
+					                "text": textpost,
+					                "username": username
 					            }
 					        ]
 					    }
