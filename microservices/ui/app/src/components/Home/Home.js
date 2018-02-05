@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux"
 
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
@@ -14,9 +15,15 @@ class Home extends Component {
   render() {
     return (
       <div className="section home">
-
+        <h1>Welcome {this.props.auth.user.firstname}</h1>
       </div>
     );
   }
 }
-export default withRouter(muiThemeable()(Home));
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+    categories: state.categories
+  };
+}
+export default connect(mapStateToProps)(muiThemeable()(Home));

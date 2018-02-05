@@ -4,13 +4,11 @@ import { connect } from "react-redux"
 
 import {getAuthUser} from './actions/authActions'
 
-
-import {MuiThemeProvider, getMuiTheme} from 'material-ui/styles';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+
+import CircularProgress from 'material-ui/CircularProgress';
 
 class App extends Component {
   constructor(props) {
@@ -18,12 +16,19 @@ class App extends Component {
     getAuthUser(this.props);
   }
   render() {
+    if(this.props.auth.loading == true) {
+      return(
+        <center style={{marginTop:'30%'}}>
+          <CircularProgress size={60} thickness={7} />
+        </center>
+      )
+    }
     return (
       <BrowserRouter>
-          <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-            <Header />
-            <Route exact path="/" component={Login}/>
-          </MuiThemeProvider>
+        <div className="wrapper">
+          <Header />
+          <Route exact path="/" component={this.props.auth.check?Home:Login}/>
+        </div>
       </BrowserRouter>
     );
   }

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 var allowCrossDomain = function(req, res, next) {
-	var allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'https://ui.bacteriology43.hasura-app.io/'];
+	var allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'https://ui.bacteriology43.hasura-app.io'];
 	var origin = req.headers.origin;
 	if(allowedOrigins.indexOf(origin) > -1){
 		res.setHeader('Access-Control-Allow-Origin', origin);
