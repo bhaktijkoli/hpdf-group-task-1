@@ -12,6 +12,7 @@ import store from "./store";
 
 import './css/index.css';
 import './css/bootstrap-grid.css';
+import './css/animate.css';
 
 ReactDOM.render((
   <Provider store={store}>

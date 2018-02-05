@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="wrapper">
-          <Header />
+          <Header auth={this.props.auth}/>
           <Route exact path="/" component={this.props.auth.check?Home:Login}/>
         </div>
       </BrowserRouter>
