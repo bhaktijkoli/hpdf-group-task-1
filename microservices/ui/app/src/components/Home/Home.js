@@ -4,18 +4,21 @@ import { connect } from "react-redux"
 
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
+import NewPost from './NewPost'
+
+import './Home.css'
+
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      slideIndex: 0,
-    };
     document.title = "Facebook";
   }
   render() {
     return (
-      <div className="section home">
-        <h1>Welcome {this.props.auth.user.firstname}</h1>
+      <div id="content-wrapper" className="section home">
+        <div className="container">
+          <NewPost auth={this.props.auth}/>
+        </div>
       </div>
     );
   }

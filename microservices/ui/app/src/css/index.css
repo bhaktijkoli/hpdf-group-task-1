@@ -41,6 +41,9 @@ body {
 .content {
   padding: 10px;
 }
+#content-wrapper {
+  margin-top: 80px;
+}
 .hidden {
   display: none !important;
 }
