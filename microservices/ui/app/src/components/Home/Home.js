@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
 import NewPost from './NewPost'
+import PostList from './PostList/PostList'
 
 import './Home.css'
 
@@ -18,6 +19,7 @@ class Home extends Component {
       <div id="content-wrapper" className="section home">
         <div className="container">
           <NewPost auth={this.props.auth}/>
+          <PostList auth={this.props.auth}/>
         </div>
       </div>
     );
