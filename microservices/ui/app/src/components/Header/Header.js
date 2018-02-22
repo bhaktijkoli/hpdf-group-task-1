@@ -62,10 +62,10 @@ class Header extends Component {
       <div className="container">
         <div className="appbar-links">
           <Link to="/"><FlatButton icon={<IconHome style={{fill:'white'}}/>} label="Home" className="appbar-btn"/></Link>
-          <Link to="/notifications"><FlatButton icon={<IconNotification  style={{fill:'white'}}/>} label="Notifications" className="appbar-btn"/></Link>
-          <Link to="/messages"><FlatButton icon={<IconMail style={{fill:'white'}}/>} label="Messages" className="appbar-btn"/></Link>
+          {/* <Link to="/notifications"><FlatButton icon={<IconNotification  style={{fill:'white'}}/>} label="Notifications" className="appbar-btn"/></Link>
+          <Link to="/messages"><FlatButton icon={<IconMail style={{fill:'white'}}/>} label="Messages" className="appbar-btn"/></Link> */}
           <IconMenu className="pull-right" iconButtonElement={<FlatButton className="appbar-btn">{this.props.auth.user.firstname}</FlatButton>}>
-          <MenuItem primaryText="Profile" leftIcon={<IconPerson/>}/>
+          {/* <MenuItem primaryText="Profile" leftIcon={<IconPerson/>}/>
           <MenuItem primaryText="List" leftIcon={<IconList/>}/>
           <MenuItem primaryText="Moments"  leftIcon={<IconFlash/>}/>
           <Divider />
@@ -74,7 +74,7 @@ class Header extends Component {
           <Divider />
           <MenuItem primaryText="Settings and privacy" />
           <MenuItem primaryText="Help Cenre" />
-          <MenuItem primaryText="Keyboard shortcuts" />
+          <MenuItem primaryText="Keyboard shortcuts" /> */}
           <MenuItem primaryText="Log out" />
         </IconMenu>
         <IconButton className="pull-right" style={{top:'15px'}} onClick={this.showSearch.bind(this)}><IconSearch className="appbar-btn"/></IconButton>

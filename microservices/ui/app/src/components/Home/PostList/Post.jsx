@@ -23,14 +23,14 @@ class Post extends Component {
         anchorOrigin={{horizontal: 'left', vertical: 'top'}}
         targetOrigin={{horizontal: 'left', vertical: 'top'}}
         >
-          <MenuItem primaryText="Copy link to Post" />
+          {/* <MenuItem primaryText="Copy link to Post" />
           <MenuItem primaryText="Embed Post" />
           <MenuItem primaryText={<span>Mute @{this.props.post.address}</span>} />
-          <MenuItem primaryText={<span>Block @{this.props.post.address}</span>} />
+          <MenuItem primaryText={<span>Block @{this.props.post.address}</span>} /> */}
           <MenuItem primaryText="Remove Post from timeline" />
           <MenuItem primaryText="Report Post" />
-          <Divider/>
-          <MenuItem primaryText="Add to new Movement" />
+          {/* <Divider/>
+          <MenuItem primaryText="Add to new Movement" /> */}
         </IconMenu>
       )
       const title = (
