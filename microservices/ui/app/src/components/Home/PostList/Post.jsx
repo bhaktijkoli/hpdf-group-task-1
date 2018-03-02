@@ -51,9 +51,9 @@ class Post extends Component {
             <CardText>
               {this.props.post.text}
             </CardText>
-            {/* <CardMedia>
-              <img src={this.props.post.images[0]} alt="" />
-            </CardMedia> */}
+            <CardMedia>
+              <img src="http://via.placeholder.com/40x40&text=Avatar" alt="" />
+            </CardMedia>
             {/* <CardActions>
               <FlatButton label={this.props.post.comments} icon={<IconComment/>}/>
               <FlatButton label={this.props.post.repost} icon={<IconRepeat/>}/>
