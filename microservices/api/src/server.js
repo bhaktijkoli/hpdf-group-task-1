@@ -191,6 +191,7 @@ app.post('/loginpoint', function(req, res){
 app.post('/submitpost',function(req,res){
 
 
+	/*just initialising randomly to stop from having null enteries*/
 	var username = "manu0309";
 	var user_id = 1000;
 	var text = 0;
@@ -373,13 +374,19 @@ app.post('/seeposts',function(req,res){
 	};
 
 	var body = {
-		"type": "select",
-		"args": {
-			"table": "textposts",
-			"columns": [
-				"*"
-			]
-		}
+	    "type": "select",
+	    "args": {
+	        "table": "textposts",
+	        "columns": [
+	            "*"
+	        ],
+	        "order_by": [
+	            {
+	                "column": "id",
+	                "order": "desc"
+	            }
+	        ]
+	    }
 	};
 
 	requestOptions.body = JSON.stringify(body);

@@ -1,0 +1,15 @@
+- args:
+    role: user
+    table: textposts
+  type: drop_select_permission
+- args:
+    permission:
+      columns:
+      - id
+      - text
+      - user_id
+      - username
+      filter: {}
+    role: user
+    table: textposts
+  type: create_select_permission
