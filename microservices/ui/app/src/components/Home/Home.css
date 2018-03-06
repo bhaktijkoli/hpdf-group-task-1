@@ -1,0 +1,23 @@
+ /* New Post */
+.new-post-container {
+  width: 100%;
+  min-height: 120px;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.new-post-action {
+  width: 100%;
+  display: inline-block;
+}
+/*Post Lsit*/
+.post-header > div {
+  width: 100%;
+  padding-right: 40px !important;
+}
+.post-header .post-right-icon {
+  float: right;
+}
+.post-card {
+  width: 100%;
+}

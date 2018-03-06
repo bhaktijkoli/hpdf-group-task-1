@@ -41,3 +41,12 @@ body {
 .content {
   padding: 10px;
 }
+#content-wrapper {
+  margin-top: 80px;
+}
+.hidden {
+  display: none !important;
+}
+.pull-right {
+  float: right !important;
+}

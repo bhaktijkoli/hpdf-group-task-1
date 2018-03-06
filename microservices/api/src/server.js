@@ -11,10 +11,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 var allowCrossDomain = function(req, res, next) {
+	var allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'https://ui.bacteriology43.hasura-app.io'];
 	var origin = req.headers.origin;
-	res.setHeader('Access-Control-Allow-Origin', origin);
-	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-	res.header('Access-Control-Allow-Headers', 'Content-Type');
+	if(allowedOrigins.indexOf(origin) > -1){
+		res.setHeader('Access-Control-Allow-Origin', origin);
+	}
+	res.header('Access-Control-Allow-Methods', 'GET, POST');
+	res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+	res.header('Access-Control-Allow-Credentials', true);
 	next();
 }
 
